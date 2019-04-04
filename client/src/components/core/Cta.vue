@@ -1,0 +1,14 @@
+<template>
+  <v-btn
+    fab
+    fixed
+    bottom
+    right
+    color="secondary"
+    href="https://github.com/vuetifyjs/theme-blog"
+    target="_blank"
+    rel="noopener"
+  >
+    <v-icon>chat_bubble_outline</v-icon>
+  </v-btn>
+</template>
