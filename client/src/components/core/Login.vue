@@ -102,6 +102,7 @@ export default {
         )
       })
       .catch(error  => {
+        console.log(error)
         // On fail do something
       })
     },
