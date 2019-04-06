@@ -31,7 +31,9 @@ router.post('/', async (req, res) => {
             }).then( result => {
                 res.send({"user":userName, "result":result })
               }
-            );
+            ).catch( err =>{
+              console.log(err)
+            });
     }
 });;
 })
