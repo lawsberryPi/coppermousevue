@@ -52,7 +52,7 @@ import GAuth from 'vue-google-oauth2'
 import Vue from 'vue'
 import { mapState } from 'vuex';
 const gauthOption = {
-  clientId: '857353240784-aalseul4jjn836oavmtuvbihskogngn3.apps.googleusercontent.com',
+  clientId: '233063685114-iph55c2beq847967msjhbodns5k34321.apps.googleusercontent.com',
   scope: 'profile email',
   prompt: 'select_account'
 }
