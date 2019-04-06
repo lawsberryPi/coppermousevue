@@ -23,7 +23,8 @@ router.post('/', async (req, res) => {
     console.log(user, "user is ....")
     if(user){
         console.log("user exist")
-        res.send({"user":userName, "result":"existed" }).catch(err=>{console.log(err)})
+        res.send({"user":userName, "result":"existed" })
+        .catch(err=>{console.log(err,"come from send one")})
     }else{
       await posts.insertOne({
               name: userName,
@@ -32,11 +33,11 @@ router.post('/', async (req, res) => {
                 res.send({"user":userName, "result":result })
               }
             ).catch( err =>{
-              console.log(err)
+              console.log(err, "come from insert one")
             });
     }
 }).catch(err =>{
-  console.log(err)
+  console.log(err, "it comes from find one")
 });;
 })
 
