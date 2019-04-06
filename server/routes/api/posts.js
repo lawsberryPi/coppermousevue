@@ -4,7 +4,7 @@ const MongoClient = require('mongodb').MongoClient;
 
 const router = express.Router();
 
-const uri = "mongodb+srv://coppervue:jessie9417@cluster0-dyqdl.mongodb.net/test?retryWrites=true";
+const uri = "mongodb+srv://coppervue:jessie9417@cluster0-dyqdl.mongodb.net";
 
 // connect to database
   async function loadPostsCollection(){
