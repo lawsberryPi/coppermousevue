@@ -9,7 +9,10 @@ const uri = "mongodb+srv://coppervue:jessie9417@cluster0-dyqdl.mongodb.net/test?
 // connect to database
   async function loadPostsCollection(){
     const client = await mongodb.MongoClient.connect
-    (uri,{useNewUrlParser:true});
+    (uri,{useNewUrlParser:true})
+    .catch(err=>{
+      console.log("the error come from load post collection", err)
+    });
     return client.db('coppervue').collection('post')
 }
 
