@@ -23,7 +23,7 @@ router.post('/', async (req, res) => {
     console.log(user, "user is ....")
     if(user){
         console.log("user exist")
-        res.send({"user":userName, "result":"existed" })
+        res.send({"user":userName, "result":"existed" }).catch(err=>{console.log(err)})
     }else{
       await posts.insertOne({
               name: userName,
@@ -35,6 +35,8 @@ router.post('/', async (req, res) => {
               console.log(err)
             });
     }
+}).catch(err =>{
+  console.log(err)
 });;
 })
 
