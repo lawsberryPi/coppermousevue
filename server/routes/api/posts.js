@@ -3,7 +3,8 @@ const mongodb = require('mongodb');
 
 const router = express.Router();
 
-const uri = "mongodb+srv://coppervue:jessie9417@cluster0-dyqdl.mongodb.net/test?retryWrites=true";
+const uri = "mongodb+srv://coppermouse:jessie9417@cluster0-mn8yh.mongodb.net/test?retryWrites=true&w=majority";
+//"mongodb+srv://coppervue:jessie9417@cluster0-dyqdl.mongodb.net/test?retryWrites=true";
 
 // connect to database
   async function loadPostsCollection(){
