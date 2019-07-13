@@ -31,8 +31,7 @@
     },
 
     data: () => ({
-      layout: [2, 2, 1],
-      page: 1
+      layout: [12, 12, 12],
     }),
 
     computed: {
@@ -41,12 +40,6 @@
         const start = 0
         const stop = 2
         return this.articles.slice(start, stop)
-      }
-    },
-
-    watch: {
-      page () {
-        window.scrollTo(0, 0)
       }
     }
   }

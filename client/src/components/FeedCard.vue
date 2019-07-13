@@ -4,7 +4,7 @@
     :class="classes"
   >
     <base-card
-      :height="value.prominent ? 450 : 350"
+      :height="value.prominent ? 500 : 450"
       color="grey lighten-1"
       dark
       href="#!"

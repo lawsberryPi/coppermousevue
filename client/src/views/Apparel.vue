@@ -14,25 +14,25 @@
                   <v-flex xs6>
                     <v-container fluid grid-list-sm>
                         <v-layout>
-                            <v-flex xs6 sm4>
-                                <v-img
-                                id = "starFront"
-                                :src="item.front"
-                                height="100%"
-                                width="100%"
-                                @click="onZoom('front',index)"
-                                ></v-img>
-                            </v-flex>
-                            <v-flex xs6 sm4>
-                                <v-img
-                                id = "starBack"
-                                :src="item.back"
-                                height="100%"
-                                width="100%"
-                                @click="onZoom('back',index)"
-                                ></v-img>
-                            </v-flex>
-                        </v-layout>
+                          <v-flex xs6 sm4>
+                            <v-img
+                            id = "starFront"
+                            :src="item.front"
+                            height="100%"
+                            width="100%"
+                            @click="onZoom('front',index)"
+                            ></v-img>
+                          </v-flex>
+                          <v-flex xs6 sm4>
+                            <v-img
+                            id = "starBack"
+                            :src="item.back"
+                            height="100%"
+                            width="100%"
+                            @click="onZoom('back',index)"
+                            ></v-img>
+                        </v-flex>
+                      </v-layout>
                     </v-container>
                   </v-flex>
                   <v-flex xs6>
@@ -75,20 +75,48 @@
 <script>
 
 import Vue from 'vue'
+import PostService from '../PostService'
+import axios from 'axios'
+
 
 export default {
+  mounted() {
+    var thisObj = this
+     var pageDiscription = PostService.getLists().then(
+      res => {
+        res.data.forEach(listItem => {
+          if(listItem.category_path.indexOf('Clothing')>-1){
+          console.log(listItem.price)
+          // thisObj.eachList = {"price": listItem.price, "title":listItem.title, "images":[]}
+          thisObj.listingItems.push( {"list_id":listItem.listing_id ,"price": listItem.price, "title":listItem.title, "images":[]})
+            PostService.getImageUrl(listItem.listing_id).then(
+              imageUrlResponse => {
+                imageUrlResponse.data.forEach(eachImage => {
+                const itemIndex = thisObj.listingItems.findIndex(eachItem => eachItem.list_id ===eachImage.listing_id )
+                thisObj.listingItems[itemIndex].images.push(thisObj.eachList)
+                })
+                console.log(thisObj)
+              }
+            )
+          }
+        })
+      }
+    )
+  },
     components: {
         ZoomModal: () => import('@/components/ZoomModal'),
         RatingApi: () => import('@/components/RatingProduct')
     },
   data () {
     return {
+      eachList:null,
+      listingItems:[],
       dialog: false,
       colors:['cyan darken-2','purple', 'deep-purple','indigo', 'blue-grey'],
       imageMaterial:[{front: require('@/assets/apparel/starWarFront.jpg'), back: require('@/assets/apparel/starWarBack.jpg'),
-       title:'Buzz Light Year', price: '$25', frontModel:false, backModel:false},
-                    { front: require('@/assets/apparel/polishFront.jpg'), back: require('@/assets/apparel/polishBack.jpg'), 
-                    title:'Polish Proud', price: '$20', frontModel:false, backModel:false}],
+      title:'Buzz Light Year', price: '$25', frontModel:false, backModel:false},
+            { front: require('@/assets/apparel/polishFront.jpg'), back: require('@/assets/apparel/polishBack.jpg'), 
+      title:'Polish Proud', price: '$20', frontModel:false, backModel:false}],
     }
   },
     methods:{

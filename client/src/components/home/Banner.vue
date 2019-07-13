@@ -1,4 +1,3 @@
-qwa 
 <template>
   <base-card dark>
     <v-img
@@ -17,11 +16,11 @@ qwa
           md7
           offset-md5
         >
-          <h1 class="display-3 font-weight-light" style="color:red;">
-            Apparel
+          <h1 class="display-3 font-weight-light" style="color:#b87333;">
+            <b>APPAREL</b>
           </h1>
           <div class="subheading text-uppercase pl-2 mb-4">
-            <b style="color:black;">finding your favorite art piece</b>
+            <b style="color:black;">Personlize your outfit</b>
           </div>
           <v-btn
             color="primary"

@@ -22,7 +22,19 @@ class PostService{
             }
         })
     }
-
+    // static getEtsyShop (){
+    //     var axiosReturn = axios.get('api/posts/getShop')
+    //     return axiosReturn
+    // }
+    static getImageUrl (listId){
+        var axiosReturn = axios.post('api/posts/getImagesUrls', {
+            'list': listId
+        })
+        return axiosReturn
+    }
+    static getLists (){
+        return axios.get('api/posts/getLists')
+    }
 // create post
     static insertPost (userObj){
         return axios.post(url, userObj)
