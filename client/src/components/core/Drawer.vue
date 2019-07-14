@@ -4,7 +4,7 @@
     app
   >
       <v-list>
-          <v-list-tile @click="onClick">
+          <v-list-tile @click="onClickTshirt">
                 <v-list-tile-avatar tile='false'>
                 <img src='./../../assets/t_shirt.png' >
               </v-list-tile-avatar>
@@ -12,7 +12,7 @@
                 <v-list-tile-title v-text="'T-Shirt'"></v-list-tile-title>
               </v-list-tile-content>
         </v-list-tile>
-        <v-list-tile @click="onClick">
+        <v-list-tile @click="onClickOther">
             <v-list-tile-avatar tile='false'>
             <img src='./../../assets/vinyl.png' >
           </v-list-tile-avatar>
@@ -20,7 +20,7 @@
             <v-list-tile-title v-text="'Vinyl'"></v-list-tile-title>
           </v-list-tile-content>
         </v-list-tile>
-            <v-list-tile @click="onClick">
+            <v-list-tile @click="onClickOther">
                 <v-list-tile-avatar tile='false'>
                 <img src='./../../assets/invitation.png' >
               </v-list-tile-avatar>
@@ -28,7 +28,7 @@
                 <v-list-tile-title v-text="'Invitations'"></v-list-tile-title>
               </v-list-tile-content>
             </v-list-tile>
-          <v-list-tile @click="onClick">
+          <v-list-tile @click="onClickOther">
               <v-list-tile-avatar tile='false'>
               <img src='./../../assets/illustration.png' >
             </v-list-tile-avatar>
@@ -64,20 +64,14 @@
 
     methods: {
       ...mapMutations(['setDrawer']),
-      onClick (e, item) {
-        e.stopPropagation()
-
-        if (item.to === '/') {
-          this.$vuetify.goTo(0)
-          this.setDrawer(false)
-          return
-        }
-
-        if (item.to || !item.href) return
-
+      onClickTshirt (e, item) {
+        this.$router.push('apparel')
         this.$vuetify.goTo(item.href)
         this.setDrawer(false)
       },
+      onClickOther(){
+        alert("we are currently not doing this")
+      }
       
     },
   data () {
