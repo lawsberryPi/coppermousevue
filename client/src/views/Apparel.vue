@@ -6,24 +6,24 @@
           grid-list-lg
         >
           <v-layout row wrap 
-          v-for="(item, index) in imageMaterial"
+          v-for="(item, index) in listingItems"
           :key="index">
             <v-flex xs12>
               <v-card :color="colors[Math.floor(Math.random() * Math.floor(5))]" class="white--text">
                 <v-layout>
-                  <v-flex xs6>
+                  <v-flex xs8>
                     <v-container fluid grid-list-sm>
-                        <v-layout>
-                          <v-flex xs6 sm4>
-                            <v-img
-                            id = "starFront"
-                            :src="item.front"
-                            height="100%"
-                            width="100%"
-                            @click="onZoom('front',index)"
-                            ></v-img>
-                          </v-flex>
-                          <v-flex xs6 sm4>
+                        <v-layout>                        
+                          <v-carousel>
+                            <v-carousel-item
+                              v-for="(item,i) in item.images"
+                              :key="i"
+                              :src="item"
+                              reverse-transition="fade"
+                              transition="fade"
+                            ></v-carousel-item>
+                          </v-carousel>
+                          <!-- <v-flex xs6 sm4>
                             <v-img
                             id = "starBack"
                             :src="item.back"
@@ -31,11 +31,11 @@
                             width="100%"
                             @click="onZoom('back',index)"
                             ></v-img>
-                        </v-flex>
+                        </v-flex> -->
                       </v-layout>
                     </v-container>
                   </v-flex>
-                  <v-flex xs6>
+                  <v-flex xs4>
                     <v-card-title primary-title>
                       <div>
                         <div class="headline">{{item.title}}</div>
@@ -93,7 +93,7 @@ export default {
               imageUrlResponse => {
                 imageUrlResponse.data.forEach(eachImage => {
                 const itemIndex = thisObj.listingItems.findIndex(eachItem => eachItem.list_id ===eachImage.listing_id )
-                thisObj.listingItems[itemIndex].images.push(thisObj.eachList)
+                thisObj.listingItems[itemIndex].images.push(eachImage.url_fullxfull)
                 })
                 console.log(thisObj)
               }
