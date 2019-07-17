@@ -9,7 +9,7 @@
         <v-toolbar-title>View Large Image</v-toolbar-title>
         </v-toolbar>
         <v-img
-            :src="this.image"
+            :src="image"
             height="100%"
             width="100%"
             contain

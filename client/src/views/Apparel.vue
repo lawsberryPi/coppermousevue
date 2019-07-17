@@ -147,7 +147,7 @@ export default {
     clickGallery(item){
       this.zoomImage = item
       this.modalShow = true
-      console.log(item)
+      console.log(item + "zoom url")
     }
   }
 }
