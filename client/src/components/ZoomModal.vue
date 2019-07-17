@@ -9,7 +9,7 @@
         <v-toolbar-title>View Large Image</v-toolbar-title>
         </v-toolbar>
         <v-img
-            :src="image"
+            :src="this.image"
             height="100%"
             width="100%"
             contain
@@ -22,10 +22,6 @@
   export default {
     name: 'ZoomModal',
     props: {
-      index: {
-        type: Number,
-        default: 0
-      },
       dialog:{
         type:Boolean,
         default: false
