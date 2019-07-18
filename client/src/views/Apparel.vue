@@ -61,6 +61,7 @@
           </v-layout>
         </v-container>
         <zoom-modal
+        v-if="modalShow"
         :dialog="modalShow"
         :image="zoomImage"
         :close="closeZoomFront"
