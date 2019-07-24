@@ -12,12 +12,12 @@
                 <v-list-tile-title v-text="'T-Shirt'"></v-list-tile-title>
               </v-list-tile-content>
         </v-list-tile>
-        <v-list-tile @click="onClickOther">
+        <v-list-tile @click="onClickGlass">
             <v-list-tile-avatar tile='false'>
             <img src='./../../assets/vinyl.png' >
           </v-list-tile-avatar>
           <v-list-tile-content>
-            <v-list-tile-title v-text="'Vinyl'"></v-list-tile-title>
+            <v-list-tile-title v-text="'Glass Etching'"></v-list-tile-title>
           </v-list-tile-content>
         </v-list-tile>
             <v-list-tile @click="onClickOther">
@@ -66,7 +66,11 @@
       ...mapMutations(['setDrawer']),
       onClickTshirt (e, item) {
         this.$router.push('apparel')
-        this.$vuetify.goTo(item.href)
+        // this.$vuetify.goTo(item.href)
+        this.setDrawer(false)
+      },
+      onClickGlass(){
+        this.$router.push('etching')
         this.setDrawer(false)
       },
       onClickOther(){

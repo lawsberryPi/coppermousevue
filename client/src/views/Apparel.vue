@@ -23,18 +23,8 @@
                               reverse-transition="fade"
                               transition="fade"
                             >
-                            <!-- <img :src="imageItem.url" v-bind:style="{ height: '500px', width:'auto', height:'auto' }"/> -->
                           </v-carousel-item>
                           </v-carousel>
-                          <!-- <v-flex xs6 sm4>
-                            <v-img
-                            id = "starBack"
-                            :src="item.back"
-                            height="100%"
-                            width="100%"
-                            @click="onZoom('back',index)"
-                            ></v-img>
-                        </v-flex> -->
                       </v-layout>
                     </v-container>
                   </v-flex>
@@ -112,10 +102,6 @@ export default {
       listingItems:[],
       dialog: false,
       colors:['cyan darken-2','purple', 'deep-purple','indigo', 'blue-grey'],
-      imageMaterial:[{front: require('@/assets/apparel/starWarFront.jpg'), back: require('@/assets/apparel/starWarBack.jpg'),
-      title:'Buzz Light Year', price: '$25', frontModel:false, backModel:false},
-            { front: require('@/assets/apparel/polishFront.jpg'), back: require('@/assets/apparel/polishBack.jpg'), 
-      title:'Polish Proud', price: '$20', frontModel:false, backModel:false}],
     }
   },
   computed: {

@@ -1,12 +1,13 @@
-[
+[  
+  {
+  "title": "Glass Etching",
+  "author": "decorate your soul",
+  "hero": "growler1.jpg"
+  },
   {
     "title": "Invitations",
     "author": "Glass Slippers",
     "hero": "wedding.jpg"
-  },
-  {
-    "title": "Glass Etching",
-    "author": "decorate your soul",
-    "hero": "autumnclouds.jpg"
   }
+
 ]

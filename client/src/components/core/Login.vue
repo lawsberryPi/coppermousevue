@@ -21,7 +21,6 @@
                 <v-list-tile-title v-else>{{userName}}, welcome!</v-list-tile-title>
                 <v-list-tile-sub-title>-- from Copper Mouse Ink</v-list-tile-sub-title>
               </v-list-tile-content>
-  
               <v-list-tile-action>
                 <v-btn
                   :class="fav ? 'red--text' : ''"
@@ -33,10 +32,9 @@
               </v-list-tile-action>
             </v-list-tile>
           </v-list>
-  
           <v-divider></v-divider>
-                <v-btn block color="primary" @click="handleClickSignIn" v-if="!isSignIn">google sign In</v-btn>
-                <v-btn block color="primary" @click="handleClickSignOut" v-if="isSignIn">sign out</v-btn>
+            <v-btn block color="primary" @click="handleClickSignIn" v-if="!isSignIn">google sign In</v-btn>
+            <v-btn block color="primary" @click="handleClickSignOut" v-if="isSignIn">sign out</v-btn>
           <v-card-actions>
             <v-spacer></v-spacer>
             <v-btn flat @click="menu = false">Cancel</v-btn>
