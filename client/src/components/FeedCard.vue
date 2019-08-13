@@ -34,7 +34,7 @@
               color="primary"
               label
               small
-              @click.stop=""
+              @click="clickShop(this.title)"
             >
               Shop More
             </v-chip>
@@ -55,9 +55,18 @@
       value: {
         type: Object,
         default: () => ({})
+      },
+      title:{
+        type:String,
+        required:true
+      }
+
+    },
+    methods: {
+      clickShop(){
+
       }
     },
-
     computed: {
       classes () {
         return {

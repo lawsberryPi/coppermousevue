@@ -8,14 +8,14 @@
         py-4
         pl-4
       >
-        <v-flex shrink>
+        <v-flex xs8>
           <v-img
-            height="600"
-            width="auto"
+            height="100%"
+            width="100%"
             :src="require(`@/assets/etching/growler.jpg`)"
           ></v-img>
         </v-flex>
-        <v-flex text-center>
+        <v-flex xs4>
           <v-container
             grid-list-lg
             pa-0

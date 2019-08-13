@@ -10,6 +10,7 @@
       <feed-card
         v-for="(article, i) in paginatedArticles"
         :key="article.title"
+        :title="article.title"
         :size="layout[i]"
         :value="article"
       />

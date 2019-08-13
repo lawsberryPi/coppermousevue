@@ -12,21 +12,25 @@
               <v-card :color="colors[Math.floor(Math.random() * Math.floor(5))]" class="white--text">
                 <v-layout>
                   <v-flex xs8>
+                    <fullscreen ref="fullscreen" class="fullscreen-wrapper" 
+                    style="display: flex; justify-content: space-between;width: 100%; height: 100%;">
                     <v-container fluid grid-list-sm>
-                        <v-layout>                        
+                        <button type="button" @click="fullscreen(index)">fullscreen</button>
+                        <v-layout>              
                           <v-carousel ref="gallery">
                             <v-carousel-item
-                              @click="clickGallery(imageItem.url)"
                               v-for="(imageItem,i) in item.images"
                               :key="i"
                               :src="imageItem.url"
                               reverse-transition="fade"
                               transition="fade"
+                              style="width: 100%; height: 100%;"
                             >
                           </v-carousel-item>
                           </v-carousel>
                       </v-layout>
                     </v-container>
+                    </fullscreen>
                   </v-flex>
                   <v-flex xs4>
                     <v-card-title primary-title>
@@ -64,6 +68,8 @@
 import Vue from 'vue'
 import PostService from '../PostService'
 import axios from 'axios'
+import fullscreen from 'vue-fullscreen'
+  Vue.use(fullscreen)
 
 
 export default {
@@ -112,6 +118,9 @@ export default {
     }
   },
     methods:{
+      fullscreen(index) {
+        this.$refs['fullscreen'][index].enter()
+      },
       onZoom(e, index){
         if (e === "front"){
             this.imageMaterial[index].frontModel = true
